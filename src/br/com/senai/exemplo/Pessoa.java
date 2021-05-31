@@ -1,6 +1,11 @@
-package br.com.senai;
+package br.com.senai.exemplo;
 
 public class Pessoa {
+	@Override
+	public String toString() {
+		return "Nome: " + nome +"\nanoDeNascimento: " + anoDeNascimento + "\nSexo: " + sexo;
+	}
+
 	//ATRIBUTOS
 	private String nome;
 	private int  anoDeNascimento;
