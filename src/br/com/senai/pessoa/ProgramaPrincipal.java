@@ -4,45 +4,50 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProgramaPrincipal {
-
+	
 	public static void main(String[] args) {
 		
 		List<Pessoa> pessoas = new ArrayList<>();
 		
-		
-		PessoaController pessoacontroller = new PessoaController();
+		PessoaController pessoaController = new PessoaController();
 		
 		boolean sair = false;
-				
 		
 		do {
 			
-			pessoacontroller.menu();
+			pessoaController.menu();
 			
-			int opcao = pessoacontroller.LeOpcao();
-			
+			int opcao = pessoaController.leOpcao();
+					
 			switch(opcao) {
-				case 1:
-					pessoas.add(pessoacontroller.cadastrarPessoa());
-					break;
-					
-				case 2:
-					pessoacontroller.listarPessoas(pessoas);
-					break;
-					
-				case 9:
-					sair = true;
-					break;
+			case 1:
+				System.out.println("\n");
+				pessoas.add(pessoaController.cadastrarPessoa());
+				break;
 				
-				default:
-					System.out.println("Opção invalida");
-					break;
+			case 2:
+				if(pessoaController.listarPessoas(pessoas).isEmpty()) {
+					System.out.println("A lista está vazia, cadastre alguma pessoa!");
+					System.out.println("\n");
+				}
+				else{
+					pessoaController.listarPessoas(pessoas);
+				}
+				break;
+			case 9:
+				sair = true;
+				break;
+				
+			default:
+				System.out.println("\n");
+				System.out.println("Opção Inválida!!");
+				break;
+				
 			}
-			
 		}while(!sair);
 		
-		
-		System.out.println("Sistema finalizado");
+		System.out.println("\n");
+		System.out.println("Sistema Finalizado!!!");
 	}
-
 }
+
