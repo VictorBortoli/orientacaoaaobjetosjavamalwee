@@ -1,6 +1,7 @@
 package br.com.senai.endereco;
 
-public class Cidade extends Estado{
+public class Cidade extends Estado {
+
 	
 	private String nomeDaCidade;
 
@@ -10,6 +11,5 @@ public class Cidade extends Estado{
 
 	public void setNomeDaCidade(String nomeDaCidade) {
 		this.nomeDaCidade = nomeDaCidade;
-	}
-	
+	}	
 }

@@ -3,72 +3,87 @@ package br.com.senai;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.senai.loja.VendaController;
 import br.com.senai.pessoa.Pessoa;
 import br.com.senai.pessoa.PessoaController;
 import br.com.senai.produto.Produto;
 import br.com.senai.produto.ProdutoController;
 
 public class ProgramaPrincipal {
-	
+
 	public static void main(String[] args) {
-		
+
 		List<Pessoa> pessoas = new ArrayList<>();
-		List<Produto> produtos = new ArrayList<Produto>();
-		
+		List<Produto> produtos = new ArrayList<>();
+
 		PessoaController pessoaController = new PessoaController();
 		ProdutoController produtoController = new ProdutoController();
+
 		boolean sair = false;
-		
+
 		do {
-			
+
 			pessoaController.menu();
+			produtoController.menu();
+
 			int opcao = pessoaController.leOpcao();
-//			int opcao2 = produtoController.leOpcao();	
-//			
-			switch(opcao) {
+//			int opcao2 = produtoController.leOpcao();
+
+			switch (opcao) {
+			
 			case 1:
 				System.out.println("\n");
 				pessoas.add(pessoaController.cadastrarPessoa());
-				break;
 				
+				break;
+
 			case 2:
-				if(pessoas.isEmpty()) {
+				if (pessoas.isEmpty()) {
+					System.out.println("\n");
 					System.out.println("A lista está vazia, cadastre alguma pessoa!");
 					System.out.println("\n");
-				}
-				else{
+				} else {
 					pessoaController.listarPessoas(pessoas);
 				}
+				
 				break;
-			
+				
 			case 3:
 				System.out.println("\n");
 				produtos.add(produtoController.cadastrarProduto());
-				break;
 				
+				break;
+
 			case 4:
-				if(produtos.isEmpty()) {
-					System.out.println("A lista está vazia, cadastre um produto");
-					System.out.println("/n");
-				}
-				else {
+				if (produtos.isEmpty()) {
+					System.out.println("\n");
+					System.out.println("A lista está vazia, cadastre algum produto!");
+					System.out.println("\n");
+				} else {
 					produtoController.listarProdutos(produtos);
 				}
+
 				break;
-			case 9:
-				sair = true;
+			
+			case 5:
+				produtoController.editarProduto(produtos);
 				break;
 				
+			case 9:
+				sair = true;
+				
+				break;
+
 			default:
 				System.out.println("\n");
 				System.out.println("Opção Inválida!!");
-				break;
 				
+				break;
+
 			}
-		}while(!sair);
-		
+		} while (!sair);
+
 		System.out.println("\n");
 		System.out.println("Sistema Finalizado!!!");
 	}
 }
-

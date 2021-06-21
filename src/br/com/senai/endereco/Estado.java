@@ -1,22 +1,24 @@
 package br.com.senai.endereco;
 
-public class Estado extends Pais{
+public class Estado extends Pais {
+
 	
 	private String nomeDoEstado;
-	private String ufDoEstado;
+	private String uf;
+	
 	public String getNomeDoEstado() {
 		return nomeDoEstado;
 	}
+	
 	public void setNomeDoEstado(String nomeDoEstado) {
 		this.nomeDoEstado = nomeDoEstado;
 	}
-	public String getUfDoEstado() {
-		return ufDoEstado;
-	}
-	public void setUfDoEstado(String ufDoEstado) {
-		this.ufDoEstado = ufDoEstado;
+	
+	public String getUf() {
+		return uf;
 	}
 	
-	
-	
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
 }

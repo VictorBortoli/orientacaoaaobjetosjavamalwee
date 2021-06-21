@@ -1,39 +1,42 @@
 package br.com.senai.endereco;
 
 public class Endereco extends Cidade {
+
+	//ATRIBUTOS
+	private String nomeDaRua;
+	private String bairro;
+	private String complemento;
+	private String numero;
 	
-	 private String rua;
-	 private String bairro;
-	 private String numero;
-	 private String complemento;
-	public String getRua() {
-		return rua;
+	public String getNomeDaRua() {
+		return nomeDaRua;
 	}
-	public void setRua(String rua) {
-		this.rua = rua;
+	
+	public void setNomeDaRua(String nomeDaRua) {
+		this.nomeDaRua = nomeDaRua;
 	}
+	
 	public String getBairro() {
 		return bairro;
 	}
+	
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
-	public String getNumero() {
-		return numero;
-	}
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
+	
 	public String getComplemento() {
 		return complemento;
 	}
+	
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-	 
-	 
 	
-		
-		
-}	
+	public String getNumero() {
+		return numero;
+	}
 	
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}	
+}
