@@ -27,51 +27,51 @@ private Scanner tec;
 		System.out.println("\n");
 	}
 	
-	public Venda cadastrarProduto() {
-		Venda produto = new Venda();
-		
-		System.out.println("---- Cadastrar Produtos ----");
-		System.out.println("\n");
-		
-		System.out.print("Informe o nome do produto: ");
-		tec.nextLine();
-		produto.set(tec.nextLine());
-		
-		System.out.print("Informe o valor unitário do produto: ");
-		produto.setAnoDeNascimento(tec.nextInt());
-		
-		System.out.print("Informe a sua altura: ");
-		produto.setAltura(tec.nextDouble());
-		
-		System.out.print("Informe a quantidade comprada do produto: ");
-		tec.nextLine();
-		produto.setNomeDoPais(tec.nextLine());
-		
-		System.out.print("Informe a Sigla do País que você vive: ");
-		produto.setSiglaDoPais(tec.nextLine());
-		
-		System.out.print("Informe o Estado em que você reside: ");
-		produto.setNomeDoEstado(tec.nextLine());
-		
-		System.out.print("Informe o UF: ");
-		produto.setUf(tec.nextLine());
-		
-		System.out.print("Informe a Cidade que você reside: ");
-		produto.setNomeDaCidade(tec.nextLine());
-		
-		System.out.print("Informe o nome da Rua que você mora: ");
-		produto.setNomeDaRua(tec.nextLine());
-		
-		System.out.print("Informe o Bairro: ");
-		produto.setBairro(tec.nextLine());
-		
-		System.out.print("Complemento: ");
-		produto.setComplemento(tec.nextLine());
-		
-		System.out.print("Número: ");
-		produto.setNumero(tec.nextLine());
-		System.out.println("\n");
-		
-		return produto;
-	}
+//	public Venda cadastrarProduto() {
+//		Venda produto = new Venda();
+//		
+//		System.out.println("---- Cadastrar Produtos ----");
+//		System.out.println("\n");
+//		
+//		System.out.print("Informe o nome do produto: ");
+//		tec.nextLine();
+//		produto.set(tec.nextLine());
+//		
+//		System.out.print("Informe o valor unitário do produto: ");
+//		produto.setAnoDeNascimento(tec.nextInt());
+//		
+//		System.out.print("Informe a sua altura: ");
+//		produto.setAltura(tec.nextDouble());
+//		
+//		System.out.print("Informe a quantidade comprada do produto: ");
+//		tec.nextLine();
+//		produto.setNomeDoPais(tec.nextLine());
+//		
+//		System.out.print("Informe a Sigla do País que você vive: ");
+//		produto.setSiglaDoPais(tec.nextLine());
+//		
+//		System.out.print("Informe o Estado em que você reside: ");
+//		produto.setNomeDoEstado(tec.nextLine());
+//		
+//		System.out.print("Informe o UF: ");
+//		produto.setUf(tec.nextLine());
+//		
+//		System.out.print("Informe a Cidade que você reside: ");
+//		produto.setNomeDaCidade(tec.nextLine());
+//		
+//		System.out.print("Informe o nome da Rua que você mora: ");
+//		produto.setNomeDaRua(tec.nextLine());
+//		
+//		System.out.print("Informe o Bairro: ");
+//		produto.setBairro(tec.nextLine());
+//		
+//		System.out.print("Complemento: ");
+//		produto.setComplemento(tec.nextLine());
+//		
+//		System.out.print("Número: ");
+//		produto.setNumero(tec.nextLine());
+//		System.out.println("\n");
+//		
+//		return produto;
+//	}
 }
