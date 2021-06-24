@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 import com.sun.xml.internal.ws.api.pipe.NextAction;
 
+import br.com.senai.pessoa.Pessoa;
+
 public class ProdutoController {
 
 	private Scanner tec;
@@ -18,14 +20,12 @@ public class ProdutoController {
 		return tec.nextInt();
 	}
 
-	public void menu() {
-		System.out.println("|3 -> Cadastrar Produtos            |");
-		System.out.println("|4 -> Lista de Produtos Cadastrados |");
-		System.out.println("|5 -> Editar produto                |");
-		System.out.println("|6 -> Excluir produto               |");
-		System.out.println("|7 -> Editar  pessoa                |");
-		System.out.println("|8 -> Excluir pessoa                |");
-		System.out.println("|9 -> Sair do Sistema               |");
+	public void menu(List<Produto>produtos) {
+		System.out.println("|-------------- MENU ---------------|");
+		System.out.println("|1 -> Cadastrar Produtos            |");
+		System.out.println("|2 -> Lista de Produtos Cadastrados |");
+		System.out.println("|3 -> Editar produto                |");
+		System.out.println("|4 -> Excluir produto               |");
 		System.out.println("|-----------------------------------|");
 		System.out.println("\n");
 	}

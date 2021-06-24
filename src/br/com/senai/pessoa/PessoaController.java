@@ -7,21 +7,43 @@ import br.com.senai.pessoa.Pessoa;
 
 public class PessoaController {
 
-	private Scanner tec;
+	private static Scanner tec;
 	
 	public PessoaController(){
 		tec = new Scanner(System.in);
 	}
 	
-	public int leOpcao(){
+	public static int leOpcao(){
 		System.out.print("Informe a opção desejada -> ");
 		return tec.nextInt();
 	} 
 	
-	public void menu() {
+	public void menu(List<Pessoa>pessoas) {
+		
+		
 		System.out.println("|-------------- MENU ---------------|");
 		System.out.println("|1 -> Cadastrar Pessoas             |");
 		System.out.println("|2 -> Lista de Pessoas Cadastradas  |");
+		System.out.println("|3 -> Editar Pessoa                 |");
+		System.out.println("|4 -> Excluir pessoa                |");
+		System.out.println("|---------------------------------- |");
+		
+		int opcao = tec.nextInt();
+		switch(opcao) {
+		case 1:
+			pessoas.add(cadastrarPessoa());
+			break;
+		
+		case 2:
+			listarPessoas(pessoas);
+			break;
+		case 3:
+			editarPessoa(pessoas);
+			break;
+		default:
+			break;
+		}
+
 	}
 	
 	public Pessoa cadastrarPessoa() {

@@ -1,77 +1,96 @@
 package br.com.senai.loja;
 
+import java.util.List;
 import java.util.Scanner;
 
 import br.com.senai.pessoa.Pessoa;
+import br.com.senai.pessoa.PessoaController;
+import br.com.senai.produto.Produto;
+import br.com.senai.produto.ProdutoController;
 
 public class VendaController {
 
+	private Scanner tec;
+	private ProdutoController produtoController;
+	private PessoaController pessoaController;
 	
-private Scanner tec;
-	
-	public VendaController(){
-		tec = new Scanner(System.in);
+	public VendaController() {
+		tec=new Scanner(System.in);
+		produtoController = new ProdutoController();
+		pessoaController = new PessoaController();
 	}
 	
-	public int leOpcao(){
-		System.out.print("Informe a opção desejada -> ");
+	public int leOpcao() {
+		System.out.print("> ");
 		return tec.nextInt();
-	} 
-	
-	public void menu() {
-		System.out.println("|-------------- MENU ---------------|");
-		System.out.println("|1 -> Cadastrar Produtos            |");
-		System.out.println("|2 -> Lista de Produtos Cadastrados |");
-		System.out.println("|9 -> Sair do Sistema               |");
-		System.out.println("|-----------------------------------|");
-		System.out.println("\n");
 	}
-	
-//	public Venda cadastrarProduto() {
-//		Venda produto = new Venda();
-//		
-//		System.out.println("---- Cadastrar Produtos ----");
-//		System.out.println("\n");
-//		
-//		System.out.print("Informe o nome do produto: ");
-//		tec.nextLine();
-//		produto.set(tec.nextLine());
-//		
-//		System.out.print("Informe o valor unitário do produto: ");
-//		produto.setAnoDeNascimento(tec.nextInt());
-//		
-//		System.out.print("Informe a sua altura: ");
-//		produto.setAltura(tec.nextDouble());
-//		
-//		System.out.print("Informe a quantidade comprada do produto: ");
-//		tec.nextLine();
-//		produto.setNomeDoPais(tec.nextLine());
-//		
-//		System.out.print("Informe a Sigla do País que você vive: ");
-//		produto.setSiglaDoPais(tec.nextLine());
-//		
-//		System.out.print("Informe o Estado em que você reside: ");
-//		produto.setNomeDoEstado(tec.nextLine());
-//		
-//		System.out.print("Informe o UF: ");
-//		produto.setUf(tec.nextLine());
-//		
-//		System.out.print("Informe a Cidade que você reside: ");
-//		produto.setNomeDaCidade(tec.nextLine());
-//		
-//		System.out.print("Informe o nome da Rua que você mora: ");
-//		produto.setNomeDaRua(tec.nextLine());
-//		
-//		System.out.print("Informe o Bairro: ");
-//		produto.setBairro(tec.nextLine());
-//		
-//		System.out.print("Complemento: ");
-//		produto.setComplemento(tec.nextLine());
-//		
-//		System.out.print("Número: ");
-//		produto.setNumero(tec.nextLine());
-//		System.out.println("\n");
-//		
-//		return produto;
-//	}
+	public void menu(List<Venda>vendas) {
+		System.out.println("|-------------- MENU ---------------|");
+		System.out.println("|1 -> Cadastrar Venda               |");
+		System.out.println("|2 -> Lista vendas                  |");
+		System.out.println("|---------------------------------- |");
+		
+	}
+	public  List<Venda> listarVenda(List<Venda> vendas) {
+		
+		System.out.println("--- VENDAS REALIZADAS ---");
+		
+		System.out.printf("| %10s | %10s | %4s | %6s | \n",
+				"Cliente", "Produto", "Qtd" , "Valor"
+				);
+		
+		for(int i = 0; i < vendas.size(); i++){
+			System.out.printf("| %10s | %10s | %4d | %6.2f | \n",
+					vendas.get(i).getPessoa().getNome(),
+					vendas.get(i).getProduto().getNomeDoProduto(),
+					vendas.get(i).getQuantidade(),
+					vendas.get(i).getValor()
+					);
+		}
+		
+		return vendas;
+	}
+	public Venda cadastrarVenda(List<Produto> produtos, List<Pessoa> pessoas) {
+		
+		if(produtos.isEmpty()|| pessoas.isEmpty()) {
+			System.out.println("Impossivel realizar vendas sem Produtos ou pessoas Cadastradas.");
+			return null;
+		}
+		
+		produtoController.listarProdutos(produtos);
+		pessoaController.listarPessoas(pessoas);
+		
+		Venda venda = new Venda();
+		Produto produto = new Produto();
+		Pessoa pessoa = new Pessoa();
+		
+		System.out.print("Informe o Id da pessoa:");
+		int idPessoa = tec.nextInt();
+		
+		pessoa.setNome(pessoas.get(idPessoa).getNome());
+		pessoa.setAltura(pessoas.get(idPessoa).getAltura());
+		pessoa.setAnoDeNascimento(pessoas.get(idPessoa).getAnoDeNascimento());
+		
+		
+		venda.setPessoa(pessoa);
+		
+		System.out.print("Informe o ID do produto: ");
+		int idProduto = tec.nextInt()-1;
+		
+		produto.setNomeDoProduto(produtos.get(idProduto).getNomeDoProduto());
+		produto.setQuantidadeDoProduto(produtos.get(idProduto).getQuantidadeDoProduto());
+		produto.setValorUnitarioDoProduto(produtos.get(idProduto).getValorUnitarioDoProduto());
+		produto.setValorTotalDoProduto(produtos.get(idProduto).getValorTotalDoProduto());
+		
+		venda.setProduto(produto);
+		
+		System.out.println("Informe a quantidade desejada: ");
+		venda.setQuantidade(tec.nextInt());
+		
+		venda.setValor(produto.getValorUnitarioDoProduto()* venda.getQuantidade());
+		
+		return venda;
+		
+	}
 }
+	
