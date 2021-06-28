@@ -20,26 +20,29 @@ public class PessoaController {
 	
 	public void menu(List<Pessoa>pessoas) {
 		
-		
+		System.out.println("\n");
 		System.out.println("|-------------- MENU ---------------|");
 		System.out.println("|1 -> Cadastrar Pessoas             |");
 		System.out.println("|2 -> Lista de Pessoas Cadastradas  |");
 		System.out.println("|3 -> Editar Pessoa                 |");
 		System.out.println("|4 -> Excluir pessoa                |");
 		System.out.println("|---------------------------------- |");
+		System.out.println("\n");
+		System.out.print("Informe a opção desejada: ");
 		
 		int opcao = tec.nextInt();
 		switch(opcao) {
 		case 1:
 			pessoas.add(cadastrarPessoa());
 			break;
-		
 		case 2:
 			listarPessoas(pessoas);
 			break;
 		case 3:
 			editarPessoa(pessoas);
 			break;
+		case 4:
+			excluirPessoa(pessoas);
 		default:
 			break;
 		}

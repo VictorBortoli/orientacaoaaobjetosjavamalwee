@@ -28,6 +28,31 @@ public class ProdutoController {
 		System.out.println("|4 -> Excluir produto               |");
 		System.out.println("|-----------------------------------|");
 		System.out.println("\n");
+		
+		int opcao = tec.nextInt();
+		switch(opcao) {
+		
+		case 1:
+			produtos.add(cadastrarProduto());
+			break;
+		
+		case 2:
+			listarProdutos(produtos);
+			break;
+		
+		case 3:
+			editarProduto(produtos);
+			break;
+			
+		case 4:
+			excluirProduto(produtos);
+			break;
+		
+		default:
+			break;
+		
+		
+		}
 	}
 
 	public Produto cadastrarProduto() {

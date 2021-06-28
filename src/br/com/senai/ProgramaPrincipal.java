@@ -39,7 +39,8 @@ public class ProgramaPrincipal {
 				System.out.println("|3 -> Cadastrar Vendas              |");
 				System.out.println("|0 -> Sair                          |");
 				System.out.println("|---------------------------------- |");
-				System.out.println("Informe a opção desejada: ");
+				System.out.println("\n");
+				System.out.print("Informe a opção desejada: ");
 				
 				int opcao= tec.nextInt();
 			switch (opcao) {
@@ -52,7 +53,7 @@ public class ProgramaPrincipal {
 				produtoController.menu(produtos);
 				break;
 			case 3:
-				vendaController.menu(vendas);
+				vendaController.menu(produtos, pessoas);
 				break;
 			case 0:
 				sair = true;
